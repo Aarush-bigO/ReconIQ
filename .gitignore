@@ -1,0 +1,49 @@
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Node
+node_modules/
+.next/
+out/
+.turbo/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Data (never commit real credentials or private data)
+data/raw/*.csv
+data/normalized/*.csv
+# Synthetic data IS committed (it's generated, not real)
+
+# Benchmarks results are committed
+# benchmarks/results/ is tracked
+
+# Docker
+*.log
+*.db
+*.sqlite

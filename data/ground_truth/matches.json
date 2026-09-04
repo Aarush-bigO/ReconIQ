@@ -1,0 +1,1811 @@
+{
+  "seed": 42,
+  "generated_at": "2026-08-31T23:00:41.875879",
+  "matches": [
+    {
+      "ledger_id": "LED-1001",
+      "true_matches": [
+        "pay_0001001",
+        "BANK-1001"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82000"
+    },
+    {
+      "ledger_id": "LED-1002",
+      "true_matches": [
+        "pay_0001002",
+        "BANK-1002"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82001"
+    },
+    {
+      "ledger_id": "LED-1003",
+      "true_matches": [
+        "pay_0001003",
+        "BANK-1003"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82002"
+    },
+    {
+      "ledger_id": "LED-1004",
+      "true_matches": [
+        "pay_0001004",
+        "BANK-1004"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82003"
+    },
+    {
+      "ledger_id": "LED-1005",
+      "true_matches": [
+        "pay_0001005",
+        "BANK-1005"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82004"
+    },
+    {
+      "ledger_id": "LED-1006",
+      "true_matches": [
+        "pay_0001006",
+        "BANK-1006"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82005"
+    },
+    {
+      "ledger_id": "LED-1007",
+      "true_matches": [
+        "pay_0001007",
+        "BANK-1007"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82006"
+    },
+    {
+      "ledger_id": "LED-1008",
+      "true_matches": [
+        "pay_0001008",
+        "BANK-1008"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82007"
+    },
+    {
+      "ledger_id": "LED-1009",
+      "true_matches": [
+        "pay_0001009",
+        "BANK-1009"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82008"
+    },
+    {
+      "ledger_id": "LED-1010",
+      "true_matches": [
+        "pay_0001010",
+        "BANK-1010"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82009"
+    },
+    {
+      "ledger_id": "LED-1011",
+      "true_matches": [
+        "pay_0001011",
+        "BANK-1011"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82010"
+    },
+    {
+      "ledger_id": "LED-1012",
+      "true_matches": [
+        "pay_0001012",
+        "BANK-1012"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82011"
+    },
+    {
+      "ledger_id": "LED-1013",
+      "true_matches": [
+        "pay_0001013",
+        "BANK-1013"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82012"
+    },
+    {
+      "ledger_id": "LED-1014",
+      "true_matches": [
+        "pay_0001014",
+        "BANK-1014"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82013"
+    },
+    {
+      "ledger_id": "LED-1015",
+      "true_matches": [
+        "pay_0001015",
+        "BANK-1015"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82014"
+    },
+    {
+      "ledger_id": "LED-1016",
+      "true_matches": [
+        "pay_0001016",
+        "BANK-1016"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82015"
+    },
+    {
+      "ledger_id": "LED-1017",
+      "true_matches": [
+        "pay_0001017",
+        "BANK-1017"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82016"
+    },
+    {
+      "ledger_id": "LED-1018",
+      "true_matches": [
+        "pay_0001018",
+        "BANK-1018"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82017"
+    },
+    {
+      "ledger_id": "LED-1019",
+      "true_matches": [
+        "pay_0001019",
+        "BANK-1019"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82018"
+    },
+    {
+      "ledger_id": "LED-1020",
+      "true_matches": [
+        "pay_0001020",
+        "BANK-1020"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82019"
+    },
+    {
+      "ledger_id": "LED-1021",
+      "true_matches": [
+        "pay_0001021",
+        "BANK-1021"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82020"
+    },
+    {
+      "ledger_id": "LED-1022",
+      "true_matches": [
+        "pay_0001022",
+        "BANK-1022"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82021"
+    },
+    {
+      "ledger_id": "LED-1023",
+      "true_matches": [
+        "pay_0001023",
+        "BANK-1023"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82022"
+    },
+    {
+      "ledger_id": "LED-1024",
+      "true_matches": [
+        "pay_0001024",
+        "BANK-1024"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82023"
+    },
+    {
+      "ledger_id": "LED-1025",
+      "true_matches": [
+        "pay_0001025",
+        "BANK-1025"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82024"
+    },
+    {
+      "ledger_id": "LED-1026",
+      "true_matches": [
+        "pay_0001026",
+        "BANK-1026"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82025"
+    },
+    {
+      "ledger_id": "LED-1027",
+      "true_matches": [
+        "pay_0001027",
+        "BANK-1027"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82026"
+    },
+    {
+      "ledger_id": "LED-1028",
+      "true_matches": [
+        "pay_0001028",
+        "BANK-1028"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82027"
+    },
+    {
+      "ledger_id": "LED-1029",
+      "true_matches": [
+        "pay_0001029",
+        "BANK-1029"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82028"
+    },
+    {
+      "ledger_id": "LED-1030",
+      "true_matches": [
+        "pay_0001030",
+        "BANK-1030"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82029"
+    },
+    {
+      "ledger_id": "LED-1031",
+      "true_matches": [
+        "pay_0001031",
+        "BANK-1031"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82030"
+    },
+    {
+      "ledger_id": "LED-1032",
+      "true_matches": [
+        "pay_0001032",
+        "BANK-1032"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82031"
+    },
+    {
+      "ledger_id": "LED-1033",
+      "true_matches": [
+        "pay_0001033",
+        "BANK-1033"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82032"
+    },
+    {
+      "ledger_id": "LED-1034",
+      "true_matches": [
+        "pay_0001034",
+        "BANK-1034"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82033"
+    },
+    {
+      "ledger_id": "LED-1035",
+      "true_matches": [
+        "pay_0001035",
+        "BANK-1035"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82034"
+    },
+    {
+      "ledger_id": "LED-1036",
+      "true_matches": [
+        "pay_0001036",
+        "BANK-1036"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82035"
+    },
+    {
+      "ledger_id": "LED-1037",
+      "true_matches": [
+        "pay_0001037",
+        "BANK-1037"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82036"
+    },
+    {
+      "ledger_id": "LED-1038",
+      "true_matches": [
+        "pay_0001038",
+        "BANK-1038"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82037"
+    },
+    {
+      "ledger_id": "LED-1039",
+      "true_matches": [
+        "pay_0001039",
+        "BANK-1039"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82038"
+    },
+    {
+      "ledger_id": "LED-1040",
+      "true_matches": [
+        "pay_0001040",
+        "BANK-1040"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82039"
+    },
+    {
+      "ledger_id": "LED-1041",
+      "true_matches": [
+        "pay_0001041",
+        "BANK-1041"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82040"
+    },
+    {
+      "ledger_id": "LED-1042",
+      "true_matches": [
+        "pay_0001042",
+        "BANK-1042"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82041"
+    },
+    {
+      "ledger_id": "LED-1043",
+      "true_matches": [
+        "pay_0001043",
+        "BANK-1043"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82042"
+    },
+    {
+      "ledger_id": "LED-1044",
+      "true_matches": [
+        "pay_0001044",
+        "BANK-1044"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82043"
+    },
+    {
+      "ledger_id": "LED-1045",
+      "true_matches": [
+        "pay_0001045",
+        "BANK-1045"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82044"
+    },
+    {
+      "ledger_id": "LED-1046",
+      "true_matches": [
+        "pay_0001046",
+        "BANK-1046"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82045"
+    },
+    {
+      "ledger_id": "LED-1047",
+      "true_matches": [
+        "pay_0001047",
+        "BANK-1047"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82046"
+    },
+    {
+      "ledger_id": "LED-1048",
+      "true_matches": [
+        "pay_0001048",
+        "BANK-1048"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82047"
+    },
+    {
+      "ledger_id": "LED-1049",
+      "true_matches": [
+        "pay_0001049",
+        "BANK-1049"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82048"
+    },
+    {
+      "ledger_id": "LED-1050",
+      "true_matches": [
+        "pay_0001050",
+        "BANK-1050"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82049"
+    },
+    {
+      "ledger_id": "LED-1051",
+      "true_matches": [
+        "pay_0001051",
+        "BANK-1051"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82050"
+    },
+    {
+      "ledger_id": "LED-1052",
+      "true_matches": [
+        "pay_0001052",
+        "BANK-1052"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82051"
+    },
+    {
+      "ledger_id": "LED-1053",
+      "true_matches": [
+        "pay_0001053",
+        "BANK-1053"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82052"
+    },
+    {
+      "ledger_id": "LED-1054",
+      "true_matches": [
+        "pay_0001054",
+        "BANK-1054"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82053"
+    },
+    {
+      "ledger_id": "LED-1055",
+      "true_matches": [
+        "pay_0001055",
+        "BANK-1055"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82054"
+    },
+    {
+      "ledger_id": "LED-1056",
+      "true_matches": [
+        "pay_0001056",
+        "BANK-1056"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82055"
+    },
+    {
+      "ledger_id": "LED-1057",
+      "true_matches": [
+        "pay_0001057",
+        "BANK-1057"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82056"
+    },
+    {
+      "ledger_id": "LED-1058",
+      "true_matches": [
+        "pay_0001058",
+        "BANK-1058"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82057"
+    },
+    {
+      "ledger_id": "LED-1059",
+      "true_matches": [
+        "pay_0001059",
+        "BANK-1059"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82058"
+    },
+    {
+      "ledger_id": "LED-1060",
+      "true_matches": [
+        "pay_0001060",
+        "BANK-1060"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82059"
+    },
+    {
+      "ledger_id": "LED-1061",
+      "true_matches": [
+        "pay_0001061",
+        "BANK-1061"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82060"
+    },
+    {
+      "ledger_id": "LED-1062",
+      "true_matches": [
+        "pay_0001062",
+        "BANK-1062"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82061"
+    },
+    {
+      "ledger_id": "LED-1063",
+      "true_matches": [
+        "pay_0001063",
+        "BANK-1063"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82062"
+    },
+    {
+      "ledger_id": "LED-1064",
+      "true_matches": [
+        "pay_0001064",
+        "BANK-1064"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82063"
+    },
+    {
+      "ledger_id": "LED-1065",
+      "true_matches": [
+        "pay_0001065",
+        "BANK-1065"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82064"
+    },
+    {
+      "ledger_id": "LED-1066",
+      "true_matches": [
+        "pay_0001066",
+        "BANK-1066"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82065"
+    },
+    {
+      "ledger_id": "LED-1067",
+      "true_matches": [
+        "pay_0001067",
+        "BANK-1067"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82066"
+    },
+    {
+      "ledger_id": "LED-1068",
+      "true_matches": [
+        "pay_0001068",
+        "BANK-1068"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82067"
+    },
+    {
+      "ledger_id": "LED-1069",
+      "true_matches": [
+        "pay_0001069",
+        "BANK-1069"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82068"
+    },
+    {
+      "ledger_id": "LED-1070",
+      "true_matches": [
+        "pay_0001070",
+        "BANK-1070"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82069"
+    },
+    {
+      "ledger_id": "LED-1071",
+      "true_matches": [
+        "pay_0001071",
+        "BANK-1071"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82070"
+    },
+    {
+      "ledger_id": "LED-1072",
+      "true_matches": [
+        "pay_0001072",
+        "BANK-1072"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82071"
+    },
+    {
+      "ledger_id": "LED-1073",
+      "true_matches": [
+        "pay_0001073",
+        "BANK-1073"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82072"
+    },
+    {
+      "ledger_id": "LED-1074",
+      "true_matches": [
+        "pay_0001074",
+        "BANK-1074"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82073"
+    },
+    {
+      "ledger_id": "LED-1075",
+      "true_matches": [
+        "pay_0001075",
+        "BANK-1075"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82074"
+    },
+    {
+      "ledger_id": "LED-1076",
+      "true_matches": [
+        "pay_0001076",
+        "BANK-1076"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82075"
+    },
+    {
+      "ledger_id": "LED-1077",
+      "true_matches": [
+        "pay_0001077",
+        "BANK-1077"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82076"
+    },
+    {
+      "ledger_id": "LED-1078",
+      "true_matches": [
+        "pay_0001078",
+        "BANK-1078"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82077"
+    },
+    {
+      "ledger_id": "LED-1079",
+      "true_matches": [
+        "pay_0001079",
+        "BANK-1079"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82078"
+    },
+    {
+      "ledger_id": "LED-1080",
+      "true_matches": [
+        "pay_0001080",
+        "BANK-1080"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82079"
+    },
+    {
+      "ledger_id": "LED-1081",
+      "true_matches": [
+        "pay_0001081",
+        "BANK-1081"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82080"
+    },
+    {
+      "ledger_id": "LED-1082",
+      "true_matches": [
+        "pay_0001082",
+        "BANK-1082"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82081"
+    },
+    {
+      "ledger_id": "LED-1083",
+      "true_matches": [
+        "pay_0001083",
+        "BANK-1083"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82082"
+    },
+    {
+      "ledger_id": "LED-1084",
+      "true_matches": [
+        "pay_0001084",
+        "BANK-1084"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82083"
+    },
+    {
+      "ledger_id": "LED-1085",
+      "true_matches": [
+        "pay_0001085",
+        "BANK-1085"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82084"
+    },
+    {
+      "ledger_id": "LED-1086",
+      "true_matches": [
+        "pay_0001086",
+        "BANK-1086"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82085"
+    },
+    {
+      "ledger_id": "LED-1087",
+      "true_matches": [
+        "pay_0001087",
+        "BANK-1087"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82086"
+    },
+    {
+      "ledger_id": "LED-1088",
+      "true_matches": [
+        "pay_0001088",
+        "BANK-1088"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82087"
+    },
+    {
+      "ledger_id": "LED-1089",
+      "true_matches": [
+        "pay_0001089",
+        "BANK-1089"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82088"
+    },
+    {
+      "ledger_id": "LED-1090",
+      "true_matches": [
+        "pay_0001090",
+        "BANK-1090"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82089"
+    },
+    {
+      "ledger_id": "LED-1091",
+      "true_matches": [
+        "pay_0001091",
+        "BANK-1091"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82090"
+    },
+    {
+      "ledger_id": "LED-1092",
+      "true_matches": [
+        "pay_0001092",
+        "BANK-1092"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82091"
+    },
+    {
+      "ledger_id": "LED-1093",
+      "true_matches": [
+        "pay_0001093",
+        "BANK-1093"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82092"
+    },
+    {
+      "ledger_id": "LED-1094",
+      "true_matches": [
+        "pay_0001094",
+        "BANK-1094"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82093"
+    },
+    {
+      "ledger_id": "LED-1095",
+      "true_matches": [
+        "pay_0001095",
+        "BANK-1095"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82094"
+    },
+    {
+      "ledger_id": "LED-1096",
+      "true_matches": [
+        "pay_0001096",
+        "BANK-1096"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82095"
+    },
+    {
+      "ledger_id": "LED-1097",
+      "true_matches": [
+        "pay_0001097",
+        "BANK-1097"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82096"
+    },
+    {
+      "ledger_id": "LED-1098",
+      "true_matches": [
+        "pay_0001098",
+        "BANK-1098"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82097"
+    },
+    {
+      "ledger_id": "LED-1099",
+      "true_matches": [
+        "pay_0001099",
+        "BANK-1099"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82098"
+    },
+    {
+      "ledger_id": "LED-1100",
+      "true_matches": [
+        "pay_0001100",
+        "BANK-1100"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82099"
+    },
+    {
+      "ledger_id": "LED-1101",
+      "true_matches": [
+        "pay_0001101",
+        "BANK-1101"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82100"
+    },
+    {
+      "ledger_id": "LED-1102",
+      "true_matches": [
+        "pay_0001102",
+        "BANK-1102"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82101"
+    },
+    {
+      "ledger_id": "LED-1103",
+      "true_matches": [
+        "pay_0001103",
+        "BANK-1103"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82102"
+    },
+    {
+      "ledger_id": "LED-1104",
+      "true_matches": [
+        "pay_0001104",
+        "BANK-1104"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82103"
+    },
+    {
+      "ledger_id": "LED-1105",
+      "true_matches": [
+        "pay_0001105",
+        "BANK-1105"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82104"
+    },
+    {
+      "ledger_id": "LED-1106",
+      "true_matches": [
+        "pay_0001106",
+        "BANK-1106"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82105"
+    },
+    {
+      "ledger_id": "LED-1107",
+      "true_matches": [
+        "pay_0001107",
+        "BANK-1107"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82106"
+    },
+    {
+      "ledger_id": "LED-1108",
+      "true_matches": [
+        "pay_0001108",
+        "BANK-1108"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82107"
+    },
+    {
+      "ledger_id": "LED-1109",
+      "true_matches": [
+        "pay_0001109",
+        "BANK-1109"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82108"
+    },
+    {
+      "ledger_id": "LED-1110",
+      "true_matches": [
+        "pay_0001110",
+        "BANK-1110"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82109"
+    },
+    {
+      "ledger_id": "LED-1111",
+      "true_matches": [
+        "pay_0001111",
+        "BANK-1111"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82110"
+    },
+    {
+      "ledger_id": "LED-1112",
+      "true_matches": [
+        "pay_0001112",
+        "BANK-1112"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82111"
+    },
+    {
+      "ledger_id": "LED-1113",
+      "true_matches": [
+        "pay_0001113",
+        "BANK-1113"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82112"
+    },
+    {
+      "ledger_id": "LED-1114",
+      "true_matches": [
+        "pay_0001114",
+        "BANK-1114"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82113"
+    },
+    {
+      "ledger_id": "LED-1115",
+      "true_matches": [
+        "pay_0001115",
+        "BANK-1115"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82114"
+    },
+    {
+      "ledger_id": "LED-1116",
+      "true_matches": [
+        "pay_0001116",
+        "BANK-1116"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82115"
+    },
+    {
+      "ledger_id": "LED-1117",
+      "true_matches": [
+        "pay_0001117",
+        "BANK-1117"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82116"
+    },
+    {
+      "ledger_id": "LED-1118",
+      "true_matches": [
+        "pay_0001118",
+        "BANK-1118"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82117"
+    },
+    {
+      "ledger_id": "LED-1119",
+      "true_matches": [
+        "pay_0001119",
+        "BANK-1119"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82118"
+    },
+    {
+      "ledger_id": "LED-1120",
+      "true_matches": [
+        "pay_0001120",
+        "BANK-1120"
+      ],
+      "scenario": "NORMAL_MATCH",
+      "core_ref": "82119"
+    },
+    {
+      "ledger_id": "LED-1121",
+      "true_matches": [
+        "pay_0001121",
+        "BANK-1121"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85000"
+    },
+    {
+      "ledger_id": "LED-1122",
+      "true_matches": [
+        "pay_0001122",
+        "BANK-1122"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85001"
+    },
+    {
+      "ledger_id": "LED-1123",
+      "true_matches": [
+        "pay_0001123",
+        "BANK-1123"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85002"
+    },
+    {
+      "ledger_id": "LED-1124",
+      "true_matches": [
+        "pay_0001124",
+        "BANK-1124"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85003"
+    },
+    {
+      "ledger_id": "LED-1125",
+      "true_matches": [
+        "pay_0001125",
+        "BANK-1125"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85004"
+    },
+    {
+      "ledger_id": "LED-1126",
+      "true_matches": [
+        "pay_0001126",
+        "BANK-1126"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85005"
+    },
+    {
+      "ledger_id": "LED-1127",
+      "true_matches": [
+        "pay_0001127",
+        "BANK-1127"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85006"
+    },
+    {
+      "ledger_id": "LED-1128",
+      "true_matches": [
+        "pay_0001128",
+        "BANK-1128"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85007"
+    },
+    {
+      "ledger_id": "LED-1129",
+      "true_matches": [
+        "pay_0001129",
+        "BANK-1129"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85008"
+    },
+    {
+      "ledger_id": "LED-1130",
+      "true_matches": [
+        "pay_0001130",
+        "BANK-1130"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85009"
+    },
+    {
+      "ledger_id": "LED-1131",
+      "true_matches": [
+        "pay_0001131",
+        "BANK-1131"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85010"
+    },
+    {
+      "ledger_id": "LED-1132",
+      "true_matches": [
+        "pay_0001132",
+        "BANK-1132"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85011"
+    },
+    {
+      "ledger_id": "LED-1133",
+      "true_matches": [
+        "pay_0001133",
+        "BANK-1133"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85012"
+    },
+    {
+      "ledger_id": "LED-1134",
+      "true_matches": [
+        "pay_0001134",
+        "BANK-1134"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85013"
+    },
+    {
+      "ledger_id": "LED-1135",
+      "true_matches": [
+        "pay_0001135",
+        "BANK-1135"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85014"
+    },
+    {
+      "ledger_id": "LED-1136",
+      "true_matches": [
+        "pay_0001136",
+        "BANK-1136"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85015"
+    },
+    {
+      "ledger_id": "LED-1137",
+      "true_matches": [
+        "pay_0001137",
+        "BANK-1137"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85016"
+    },
+    {
+      "ledger_id": "LED-1138",
+      "true_matches": [
+        "pay_0001138",
+        "BANK-1138"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85017"
+    },
+    {
+      "ledger_id": "LED-1139",
+      "true_matches": [
+        "pay_0001139",
+        "BANK-1139"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85018"
+    },
+    {
+      "ledger_id": "LED-1140",
+      "true_matches": [
+        "pay_0001140",
+        "BANK-1140"
+      ],
+      "scenario": "REFERENCE_VARIANT",
+      "core_ref": "85019"
+    },
+    {
+      "ledger_id": "LED-1141",
+      "true_matches": [
+        "pay_0001141",
+        "BANK-1141"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88000",
+      "drift_days": 2
+    },
+    {
+      "ledger_id": "LED-1142",
+      "true_matches": [
+        "pay_0001142",
+        "BANK-1142"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88001",
+      "drift_days": 2
+    },
+    {
+      "ledger_id": "LED-1143",
+      "true_matches": [
+        "pay_0001143",
+        "BANK-1143"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88002",
+      "drift_days": 3
+    },
+    {
+      "ledger_id": "LED-1144",
+      "true_matches": [
+        "pay_0001144",
+        "BANK-1144"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88003",
+      "drift_days": 3
+    },
+    {
+      "ledger_id": "LED-1145",
+      "true_matches": [
+        "pay_0001145",
+        "BANK-1145"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88004",
+      "drift_days": 2
+    },
+    {
+      "ledger_id": "LED-1146",
+      "true_matches": [
+        "pay_0001146",
+        "BANK-1146"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88005",
+      "drift_days": 2
+    },
+    {
+      "ledger_id": "LED-1147",
+      "true_matches": [
+        "pay_0001147",
+        "BANK-1147"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88006",
+      "drift_days": 2
+    },
+    {
+      "ledger_id": "LED-1148",
+      "true_matches": [
+        "pay_0001148",
+        "BANK-1148"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88007",
+      "drift_days": 3
+    },
+    {
+      "ledger_id": "LED-1149",
+      "true_matches": [
+        "pay_0001149",
+        "BANK-1149"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88008",
+      "drift_days": 2
+    },
+    {
+      "ledger_id": "LED-1150",
+      "true_matches": [
+        "pay_0001150",
+        "BANK-1150"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88009",
+      "drift_days": 3
+    },
+    {
+      "ledger_id": "LED-1151",
+      "true_matches": [
+        "pay_0001151",
+        "BANK-1151"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88010",
+      "drift_days": 3
+    },
+    {
+      "ledger_id": "LED-1152",
+      "true_matches": [
+        "pay_0001152",
+        "BANK-1152"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88011",
+      "drift_days": 2
+    },
+    {
+      "ledger_id": "LED-1153",
+      "true_matches": [
+        "pay_0001153",
+        "BANK-1153"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88012",
+      "drift_days": 2
+    },
+    {
+      "ledger_id": "LED-1154",
+      "true_matches": [
+        "pay_0001154",
+        "BANK-1154"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88013",
+      "drift_days": 3
+    },
+    {
+      "ledger_id": "LED-1155",
+      "true_matches": [
+        "pay_0001155",
+        "BANK-1155"
+      ],
+      "scenario": "DATE_DRIFT",
+      "core_ref": "88014",
+      "drift_days": 3
+    },
+    {
+      "ledger_id": "LED-1156",
+      "true_matches": [
+        "pay_0001156",
+        "BANK-1156"
+      ],
+      "scenario": "DUPLICATE",
+      "core_ref": "91000",
+      "duplicate_pay_id": "pay_0001157"
+    },
+    {
+      "ledger_id": "LED-1157",
+      "true_matches": [
+        "pay_0001158",
+        "BANK-1157"
+      ],
+      "scenario": "DUPLICATE",
+      "core_ref": "91001",
+      "duplicate_pay_id": "pay_0001159"
+    },
+    {
+      "ledger_id": "LED-1158",
+      "true_matches": [
+        "pay_0001160",
+        "BANK-1158"
+      ],
+      "scenario": "DUPLICATE",
+      "core_ref": "91002",
+      "duplicate_pay_id": "pay_0001161"
+    },
+    {
+      "ledger_id": "LED-1159",
+      "true_matches": [
+        "pay_0001162",
+        "BANK-1159"
+      ],
+      "scenario": "DUPLICATE",
+      "core_ref": "91003",
+      "duplicate_pay_id": "pay_0001163"
+    },
+    {
+      "ledger_id": "LED-1160",
+      "true_matches": [
+        "pay_0001164",
+        "BANK-1160"
+      ],
+      "scenario": "DUPLICATE",
+      "core_ref": "91004",
+      "duplicate_pay_id": "pay_0001165"
+    },
+    {
+      "ledger_id": "LED-1161",
+      "true_matches": [
+        "pay_0001166",
+        "BANK-1161"
+      ],
+      "scenario": "DUPLICATE",
+      "core_ref": "91005",
+      "duplicate_pay_id": "pay_0001167"
+    },
+    {
+      "ledger_id": "LED-1162",
+      "true_matches": [
+        "pay_0001168",
+        "BANK-1162"
+      ],
+      "scenario": "DUPLICATE",
+      "core_ref": "91006",
+      "duplicate_pay_id": "pay_0001169"
+    },
+    {
+      "ledger_id": "LED-1163",
+      "true_matches": [
+        "pay_0001170",
+        "BANK-1163"
+      ],
+      "scenario": "DUPLICATE",
+      "core_ref": "91007",
+      "duplicate_pay_id": "pay_0001171"
+    },
+    {
+      "ledger_id": "LED-1164",
+      "true_matches": [
+        "pay_0001172",
+        "BANK-1164"
+      ],
+      "scenario": "DUPLICATE",
+      "core_ref": "91008",
+      "duplicate_pay_id": "pay_0001173"
+    },
+    {
+      "ledger_id": "LED-1165",
+      "true_matches": [
+        "pay_0001174",
+        "BANK-1165"
+      ],
+      "scenario": "DUPLICATE",
+      "core_ref": "91009",
+      "duplicate_pay_id": "pay_0001175"
+    },
+    {
+      "ledger_id": "LED-1166",
+      "true_matches": [
+        "pay_0001176",
+        "BANK-1166"
+      ],
+      "scenario": "FEE_DIFFERENCE",
+      "core_ref": "93000"
+    },
+    {
+      "ledger_id": "LED-1167",
+      "true_matches": [
+        "pay_0001177",
+        "BANK-1167"
+      ],
+      "scenario": "FEE_DIFFERENCE",
+      "core_ref": "93001"
+    },
+    {
+      "ledger_id": "LED-1168",
+      "true_matches": [
+        "pay_0001178",
+        "BANK-1168"
+      ],
+      "scenario": "FEE_DIFFERENCE",
+      "core_ref": "93002"
+    },
+    {
+      "ledger_id": "LED-1169",
+      "true_matches": [
+        "pay_0001179",
+        "BANK-1169"
+      ],
+      "scenario": "FEE_DIFFERENCE",
+      "core_ref": "93003"
+    },
+    {
+      "ledger_id": "LED-1170",
+      "true_matches": [
+        "pay_0001180",
+        "BANK-1170"
+      ],
+      "scenario": "FEE_DIFFERENCE",
+      "core_ref": "93004"
+    },
+    {
+      "ledger_id": "LED-1171",
+      "true_matches": [
+        "pay_0001181",
+        "BANK-1171"
+      ],
+      "scenario": "FEE_DIFFERENCE",
+      "core_ref": "93005"
+    },
+    {
+      "ledger_id": "LED-1172",
+      "true_matches": [
+        "pay_0001182",
+        "BANK-1172"
+      ],
+      "scenario": "FEE_DIFFERENCE",
+      "core_ref": "93006"
+    },
+    {
+      "ledger_id": "LED-1173",
+      "true_matches": [
+        "pay_0001183",
+        "BANK-1173"
+      ],
+      "scenario": "FEE_DIFFERENCE",
+      "core_ref": "93007"
+    },
+    {
+      "ledger_id": "LED-1174",
+      "true_matches": [
+        "pay_0001184",
+        "BANK-1174"
+      ],
+      "scenario": "FEE_DIFFERENCE",
+      "core_ref": "93008"
+    },
+    {
+      "ledger_id": "LED-1175",
+      "true_matches": [
+        "pay_0001185",
+        "BANK-1175"
+      ],
+      "scenario": "FEE_DIFFERENCE",
+      "core_ref": "93009"
+    },
+    {
+      "ledger_id": "LED-1176",
+      "true_matches": [
+        "pay_0001186",
+        "BANK-1176",
+        "BANK-1177"
+      ],
+      "scenario": "PARTIAL_SETTLEMENT",
+      "core_ref": "95000"
+    },
+    {
+      "ledger_id": "LED-1177",
+      "true_matches": [
+        "pay_0001187",
+        "BANK-1178",
+        "BANK-1179"
+      ],
+      "scenario": "PARTIAL_SETTLEMENT",
+      "core_ref": "95001"
+    },
+    {
+      "ledger_id": "LED-1178",
+      "true_matches": [
+        "pay_0001188",
+        "BANK-1180",
+        "BANK-1181"
+      ],
+      "scenario": "PARTIAL_SETTLEMENT",
+      "core_ref": "95002"
+    },
+    {
+      "ledger_id": "LED-1179",
+      "true_matches": [
+        "pay_0001189",
+        "BANK-1182",
+        "BANK-1183"
+      ],
+      "scenario": "PARTIAL_SETTLEMENT",
+      "core_ref": "95003"
+    },
+    {
+      "ledger_id": "LED-1180",
+      "true_matches": [
+        "pay_0001190",
+        "BANK-1184",
+        "BANK-1185"
+      ],
+      "scenario": "PARTIAL_SETTLEMENT",
+      "core_ref": "95004"
+    },
+    {
+      "ledger_id": "LED-1181",
+      "true_matches": [
+        "pay_0001191",
+        "BANK-1186",
+        "BANK-1187"
+      ],
+      "scenario": "PARTIAL_SETTLEMENT",
+      "core_ref": "95005"
+    },
+    {
+      "ledger_id": "LED-1182",
+      "true_matches": [
+        "pay_0001192",
+        "BANK-1188",
+        "BANK-1189"
+      ],
+      "scenario": "PARTIAL_SETTLEMENT",
+      "core_ref": "95006"
+    },
+    {
+      "ledger_id": "LED-1183",
+      "true_matches": [
+        "pay_0001193",
+        "BANK-1190",
+        "BANK-1191"
+      ],
+      "scenario": "PARTIAL_SETTLEMENT",
+      "core_ref": "95007"
+    },
+    {
+      "ledger_id": "LED-1184",
+      "true_matches": [
+        "pay_0001194",
+        "BANK-1192",
+        "BANK-1193"
+      ],
+      "scenario": "PARTIAL_SETTLEMENT",
+      "core_ref": "95008"
+    },
+    {
+      "ledger_id": "LED-1185",
+      "true_matches": [
+        "pay_0001195",
+        "BANK-1194",
+        "BANK-1195"
+      ],
+      "scenario": "PARTIAL_SETTLEMENT",
+      "core_ref": "95009"
+    },
+    {
+      "ledger_id": "LED-1186",
+      "true_matches": [],
+      "scenario": "MISSING_COUNTERPART",
+      "core_ref": "97000"
+    },
+    {
+      "ledger_id": "LED-1187",
+      "true_matches": [],
+      "scenario": "MISSING_COUNTERPART",
+      "core_ref": "97001"
+    },
+    {
+      "ledger_id": "LED-1188",
+      "true_matches": [],
+      "scenario": "MISSING_COUNTERPART",
+      "core_ref": "97002"
+    },
+    {
+      "ledger_id": "LED-1189",
+      "true_matches": [],
+      "scenario": "MISSING_COUNTERPART",
+      "core_ref": "97003"
+    },
+    {
+      "ledger_id": "LED-1190",
+      "true_matches": [],
+      "scenario": "MISSING_COUNTERPART",
+      "core_ref": "97004"
+    },
+    {
+      "ledger_id": "LED-1191",
+      "true_matches": [],
+      "scenario": "MISSING_COUNTERPART",
+      "core_ref": "97005"
+    },
+    {
+      "ledger_id": "LED-1192",
+      "true_matches": [],
+      "scenario": "MISSING_COUNTERPART",
+      "core_ref": "97006"
+    },
+    {
+      "ledger_id": "LED-1193",
+      "true_matches": [],
+      "scenario": "MISSING_COUNTERPART",
+      "core_ref": "97007"
+    },
+    {
+      "ledger_id": "LED-1194",
+      "true_matches": [],
+      "scenario": "MISSING_COUNTERPART",
+      "core_ref": "97008"
+    },
+    {
+      "ledger_id": "LED-1195",
+      "true_matches": [],
+      "scenario": "MISSING_COUNTERPART",
+      "core_ref": "97009"
+    },
+    {
+      "ledger_id": "LED-1196",
+      "true_matches": [
+        "pay_0001196"
+      ],
+      "scenario": "AMBIGUOUS",
+      "core_ref": "99000",
+      "decoy_id": "pay_0001197"
+    },
+    {
+      "ledger_id": "LED-1197",
+      "true_matches": [
+        "pay_0001198"
+      ],
+      "scenario": "AMBIGUOUS",
+      "core_ref": "99001",
+      "decoy_id": "pay_0001199"
+    },
+    {
+      "ledger_id": "LED-1198",
+      "true_matches": [
+        "pay_0001200"
+      ],
+      "scenario": "AMBIGUOUS",
+      "core_ref": "99002",
+      "decoy_id": "pay_0001201"
+    },
+    {
+      "ledger_id": "LED-1199",
+      "true_matches": [
+        "pay_0001202"
+      ],
+      "scenario": "AMBIGUOUS",
+      "core_ref": "99003",
+      "decoy_id": "pay_0001203"
+    },
+    {
+      "ledger_id": "LED-1200",
+      "true_matches": [
+        "pay_0001204"
+      ],
+      "scenario": "AMBIGUOUS",
+      "core_ref": "99004",
+      "decoy_id": "pay_0001205"
+    }
+  ]
+}

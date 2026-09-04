@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-reconiq}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-reconiq}
+      POSTGRES_DB: ${POSTGRES_DB:-reconiq}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U reconiq"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-reconiq}:${POSTGRES_PASSWORD:-reconiq}@db:5432/${POSTGRES_DB:-reconiq}
+      RAZORPAY_KEY_ID: ${RAZORPAY_KEY_ID:-}
+      RAZORPAY_KEY_SECRET: ${RAZORPAY_KEY_SECRET:-}
+      RAZORPAY_WEBHOOK_SECRET: ${RAZORPAY_WEBHOOK_SECRET:-}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o}
+      APP_ENV: ${APP_ENV:-development}
+      SECRET_KEY: ${SECRET_KEY:-dev-secret-key}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
+      AUTO_MATCH_THRESHOLD: ${AUTO_MATCH_THRESHOLD:-0.95}
+      REVIEW_THRESHOLD: ${REVIEW_THRESHOLD:-0.70}
+      DATE_TOLERANCE_DAYS: ${DATE_TOLERANCE_DAYS:-3}
+      AMOUNT_TOLERANCE_MINOR: ${AMOUNT_TOLERANCE_MINOR:-100}
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./data:/app/data
+      - ./benchmarks:/app/benchmarks
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    depends_on:
+      - api
+
+volumes:
+  pgdata:
