@@ -21,16 +21,12 @@ function SourceBadge({ source }: { source: string }) {
 }
 
 export default function TransactionsPage() {
+  const searchParams = useSearchParams();
+  const search = searchParams.get("search") || "";
   const [records, setRecords] = useState<any[]>([]);
   const [total, setTotal] = useState(0);
   const [source, setSource] = useState("All");
-  const [search, setSearch] = useState("");
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const params = new URLSearchParams(window.location.search);
-      setSearch(params.get("search") || "");
-    }
-  }, []);
+  
   const [loading, setLoading] = useState(true);
   const [selected, setSelected] = useState<any>(null);
 
@@ -52,7 +48,7 @@ export default function TransactionsPage() {
               {total} canonical records across all sources {search && `(searching: "${search}")`}
             </p>
             {search && (
-              <button onClick={() => { setSearch(""); window.history.replaceState({}, '', '/transactions'); }} style={{ marginTop: 8, padding: "4px 8px", fontSize: 11, background: "rgba(239,68,68,0.1)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.2)", borderRadius: 4, cursor: "pointer" }}>
+              <button onClick={() => { window.location.href = '/transactions'; }} style={{ marginTop: 8, padding: "4px 8px", fontSize: 11, background: "rgba(239,68,68,0.1)", color: "#ef4444", border: "1px solid rgba(239,68,68,0.2)", borderRadius: 4, cursor: "pointer" }}>
                 Clear Search ✕
               </button>
             )}
