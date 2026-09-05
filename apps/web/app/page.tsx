@@ -237,7 +237,7 @@ export default function RazorpayBuildathonInspired() {
                   key={i}
                   whileHover={{ x: 15, backgroundColor: "rgba(255,255,255,0.05)" }}
                   className={`px-[8px] rounded-[4px] transition-colors ${line.type === 'comment' ? 'text-gray-400 mt-[16px]' : ''}`}
-                  dangerouslySetInnerHTML={{ __html: line.html || line.text }}
+                  dangerouslySetInnerHTML={{ __html: line.html || line.text || "" }}
                 />
               ))}
             </div>

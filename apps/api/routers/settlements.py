@@ -12,6 +12,8 @@ from pydantic import BaseModel
 
 from apps.api.config import get_settings
 from audit.audit_log import get_chain, AuditAction
+from database.session import SyncSessionLocal
+from database.models import Settlement as DBSettlement
 
 settings = get_settings()
 
@@ -42,8 +44,30 @@ def set_settlement_recon_results(results: list[dict]):
 
 @router.get("")
 async def list_settlements(status: str = ""):
-    """List all settlements with optional status filter."""
+    """List all settlements with optional status filter. Falls back to database."""
     items = _settlements
+    if not items:
+        # Load from database
+        db = SyncSessionLocal()
+        try:
+            db_settlements = db.query(DBSettlement).order_by(DBSettlement.settlement_date.desc()).all()
+            items = [
+                {
+                    "settlement_id": s.settlement_id,
+                    "date": s.settlement_date.isoformat() if s.settlement_date else None,
+                    "gross_minor": s.gross_minor,
+                    "fees_minor": s.fees_minor,
+                    "tax_minor": s.tax_minor,
+                    "net_minor": s.net_minor,
+                    "bank_credit_minor": s.bank_credit_minor,
+                    "variance_minor": s.variance_minor,
+                    "status": s.status,
+                    "utr": s.utr,
+                }
+                for s in db_settlements
+            ]
+        finally:
+            db.close()
     if status:
         items = [s for s in items if s.get("status") == status]
     return {"total": len(items), "settlements": items}
@@ -75,6 +99,33 @@ async def list_settlement_reconciliation():
         "summary": summary,
         "results": _settlement_recon_results,
     }
+
+
+@router.get("/stats")
+async def settlement_stats():
+    """Settlement KPI statistics."""
+    db = SyncSessionLocal()
+    try:
+        from sqlalchemy import func
+        total = db.query(DBSettlement).count()
+        settled = db.query(DBSettlement).filter(DBSettlement.status == "SETTLED").count()
+        partial = db.query(DBSettlement).filter(DBSettlement.status == "PARTIAL").count()
+        total_gross = db.query(func.sum(DBSettlement.gross_minor)).scalar() or 0
+        total_net = db.query(func.sum(DBSettlement.net_minor)).scalar() or 0
+        total_fees = db.query(func.sum(DBSettlement.fees_minor)).scalar() or 0
+        total_variance = db.query(func.sum(func.abs(DBSettlement.variance_minor))).scalar() or 0
+        return {
+            "total_settlements": total,
+            "settled": settled,
+            "partial": partial,
+            "total_gross_minor": total_gross,
+            "total_net_minor": total_net,
+            "total_fees_minor": total_fees,
+            "total_variance_minor": total_variance,
+            "settlement_rate": round(settled / max(total, 1) * 100, 1),
+        }
+    finally:
+        db.close()
 
 
 @router.get("/{settlement_id}")

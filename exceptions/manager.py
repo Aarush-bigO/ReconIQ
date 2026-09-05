@@ -16,7 +16,7 @@ from __future__ import annotations
 
 import uuid
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from enum import Enum
 from typing import Any, Optional
 
@@ -74,11 +74,12 @@ class ExceptionRecord:
     evidence_json: dict[str, Any] = field(default_factory=dict)
     explanation: str = ""
     recommended_action: str = ""
+    deduction_category: Optional[str] = None
 
     # Lifecycle
     status: ExceptionStatus = ExceptionStatus.OPEN
-    created_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
-    updated_at: str = field(default_factory=lambda: datetime.utcnow().isoformat())
+    created_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
+    updated_at: str = field(default_factory=lambda: datetime.now(timezone.utc).isoformat())
 
     # Assignment
     assigned_to: str = ""
@@ -100,7 +101,7 @@ class ExceptionRecord:
     def age_hours(self) -> float:
         """How old is this exception in hours."""
         created = datetime.fromisoformat(self.created_at)
-        return (datetime.utcnow() - created).total_seconds() / 3600
+        return (datetime.now(timezone.utc) - created).total_seconds() / 3600
 
     @property
     def age_days(self) -> float:
@@ -119,7 +120,7 @@ class ExceptionRecord:
     def sla_remaining_hours(self) -> float:
         """Hours remaining until SLA breach. Negative if breached."""
         deadline = datetime.fromisoformat(self.sla_deadline)
-        remaining = (deadline - datetime.utcnow()).total_seconds() / 3600
+        remaining = (deadline - datetime.now(timezone.utc)).total_seconds() / 3600
         return round(remaining, 2)
 
     @property
@@ -165,14 +166,14 @@ class ExceptionRecord:
     def assign(self, operator: str) -> None:
         """Assign this exception to an operator."""
         self.assigned_to = operator
-        self.assigned_at = datetime.utcnow().isoformat()
+        self.assigned_at = datetime.now(timezone.utc).isoformat()
         self.status = ExceptionStatus.ASSIGNED
-        self.updated_at = datetime.utcnow().isoformat()
+        self.updated_at = datetime.now(timezone.utc).isoformat()
 
     def start_review(self) -> None:
         """Mark exception as being actively reviewed."""
         self.status = ExceptionStatus.IN_REVIEW
-        self.updated_at = datetime.utcnow().isoformat()
+        self.updated_at = datetime.now(timezone.utc).isoformat()
 
     def resolve(
         self,
@@ -185,14 +186,14 @@ class ExceptionRecord:
         self.resolution_type = resolution_type
         self.resolution_notes = notes
         self.resolved_by = resolved_by
-        self.resolved_at = datetime.utcnow().isoformat()
-        self.updated_at = datetime.utcnow().isoformat()
+        self.resolved_at = datetime.now(timezone.utc).isoformat()
+        self.updated_at = datetime.now(timezone.utc).isoformat()
 
     def escalate(self, notes: str = "") -> None:
         """Escalate this exception."""
         self.status = ExceptionStatus.ESCALATED
         self.resolution_notes = notes
-        self.updated_at = datetime.utcnow().isoformat()
+        self.updated_at = datetime.now(timezone.utc).isoformat()
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -220,6 +221,7 @@ class ExceptionRecord:
             "resolved_by": self.resolved_by,
             "explanation": self.explanation,
             "recommended_action": self.recommended_action,
+            "deduction_category": self.deduction_category,
             "evidence_json": self.evidence_json,
         }
 

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 
 /* ── Dashboard navigation items ──────────────────────────── */
@@ -34,6 +34,7 @@ const landingLinks = [
 
 export default function TopNav() {
   const pathname = usePathname();
+  const router = useRouter();
   const isLanding = pathname === "/";
   const [moreOpen, setMoreOpen] = useState(false);
   const [searchFocused, setSearchFocused] = useState(false);
@@ -438,6 +439,11 @@ export default function TopNav() {
               placeholder="Search PAY, UTR..."
               onFocus={() => setSearchFocused(true)}
               onBlur={() => setSearchFocused(false)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  router.push(`/transactions?search=${encodeURIComponent(e.currentTarget.value)}`);
+                }
+              }}
               style={{
                 background: "transparent",
                 border: "none",

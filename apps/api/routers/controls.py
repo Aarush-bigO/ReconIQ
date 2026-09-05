@@ -86,3 +86,50 @@ async def run_controls(db: AsyncSession = Depends(get_db)):
         "status": "PASS" if all(c["status"] == "PASS" for c in controls) else "FAIL",
         "controls": controls
     }
+
+from fastapi import HTTPException
+from database.models import Match, ExceptionRecord, JournalEntryDB
+from datetime import datetime, timezone
+
+@router.post("/approvals/{record_type}/{record_id}/{action}")
+async def process_approval(
+    record_type: str, 
+    record_id: str, 
+    action: str, 
+    db: AsyncSession = Depends(get_db)
+):
+    if action not in ("approve", "reject"):
+        raise HTTPException(status_code=400, detail="Invalid action. Use 'approve' or 'reject'.")
+
+    status_val = "APPROVED" if action == "approve" else "REJECTED"
+    reviewer = "Controller_Admin"
+
+    if record_type == "match":
+        stmt = select(Match).filter(Match.id == int(record_id))
+    elif record_type == "exception":
+        stmt = select(ExceptionRecord).filter(ExceptionRecord.exception_id == record_id)
+    elif record_type == "journal":
+        stmt = select(JournalEntryDB).filter(JournalEntryDB.entry_id == record_id)
+    else:
+        raise HTTPException(status_code=400, detail="Invalid record_type")
+
+    result = await db.execute(stmt)
+    record = result.scalar_one_or_none()
+    if not record:
+        raise HTTPException(status_code=404, detail=f"{record_type} not found")
+
+    record.review_status = status_val
+    record.reviewer_id = reviewer
+    
+    if hasattr(record, "reviewed_at"):
+        record.reviewed_at = datetime.now(timezone.utc)
+    elif hasattr(record, "updated_at"):
+        record.updated_at = datetime.now(timezone.utc)
+
+    await db.commit()
+    
+    return {
+        "message": f"Successfully updated {record_type} {record_id} to {status_val}",
+        "reviewer": reviewer
+    }
+

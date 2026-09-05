@@ -12,16 +12,16 @@ Outputs:
 Seed: 42 (fully reproducible)
 
 Distribution:
-  120 normal clean matches
-   20 reference format variants (UTR/PAY prefix differences)
-   15 date drift (settlement delay 1-3 days)
-   10 duplicates in source data
-   10 fee/tax differences
-   10 partial settlements (one-to-many)
-   10 missing counterparts (no match exists)
-    5 ambiguous (multiple candidates)
+  300 normal clean matches
+   50 reference format variants (UTR/PAY prefix differences)
+   40 date drift (settlement delay 1-3 days)
+   25 duplicates in source data
+   25 fee/tax differences
+   25 partial settlements (one-to-many)
+   25 missing counterparts (no match exists)
+   10 ambiguous (multiple candidates)
   ───
-  200 scenarios
+  500 scenarios
 """
 
 import csv
@@ -708,28 +708,28 @@ def add_ambiguous(i: int):
 
 print("Generating synthetic reconciliation data (seed=42)...")
 
-for i in range(120):
+for i in range(300):
     add_normal_match(i)
 
-for i in range(20):
+for i in range(50):
     add_reference_variant(i)
 
-for i in range(15):
+for i in range(40):
     add_date_drift(i)
 
-for i in range(10):
+for i in range(25):
     add_duplicate(i)
 
-for i in range(10):
+for i in range(25):
     add_fee_difference(i)
 
-for i in range(10):
+for i in range(25):
     add_partial_settlement(i)
 
-for i in range(10):
+for i in range(25):
     add_missing_counterpart(i)
 
-for i in range(5):
+for i in range(10):
     add_ambiguous(i)
 
 # Shuffle rows (don't let the order hint at matches)

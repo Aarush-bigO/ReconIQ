@@ -9,6 +9,12 @@ class Settings(BaseSettings):
     # Database
     database_url: str = "postgresql+asyncpg://reconiq:reconiq@localhost:5432/reconiq"
 
+    # Audit
+    audit_hmac_secret: str = "reconiq-audit-secret-2026"
+
+    # Logging
+    log_level: str = "INFO"
+
     # Razorpay
     razorpay_key_id: str = ""
     razorpay_key_secret: str = ""

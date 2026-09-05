@@ -118,3 +118,50 @@ async def get_trial_balance(db: AsyncSession) -> List[Dict[str, Any]]:
         })
         
     return tb
+
+
+def draft_deduction_journal_entry_sync(session: Session, exception: Any, diff_amount: int) -> JournalEntryDB:
+    """Draft a deduction journal entry based on exception category."""
+    category_map = {
+        "BANK_FEE": "expenses:bank_fees",
+        "DISCOUNT": "expenses:discounts",
+        "TAX": "expenses:taxes",
+    }
+    
+    cat = getattr(exception, "deduction_category", None) or "BANK_FEE"
+    expense_account = category_map.get(cat, "expenses:other")
+    suspense_account = "reconciliation:suspense"
+    
+    entry_id = f"je_draft_{uuid.uuid4().hex[:12]}"
+    
+    entry = JournalEntryDB(
+        entry_id=entry_id,
+        description=f"Draft deduction for exception {exception.exception_id}",
+        reference=exception.exception_id,
+        status="DRAFT",
+        metadata_={"lines_count": 2, "deduction_category": cat, "drafted": True}
+    )
+    session.add(entry)
+
+    # Debit expense, Credit suspense
+    line_debit = JournalLineDB(
+        entry_id=entry_id,
+        account=expense_account,
+        debit_minor=diff_amount,
+        credit_minor=0,
+        memo=f"Exception {exception.exception_id} deduction"
+    )
+    line_credit = JournalLineDB(
+        entry_id=entry_id,
+        account=suspense_account,
+        debit_minor=0,
+        credit_minor=diff_amount,
+        memo=f"Exception {exception.exception_id} suspense offset"
+    )
+    session.add(line_debit)
+    session.add(line_credit)
+
+    session.commit()
+    session.refresh(entry)
+    return entry
+

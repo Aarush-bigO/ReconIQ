@@ -27,6 +27,7 @@ from apps.api.routers import (
     period_close,
     query_lab,
     ledger,
+    copilot,
 )
 
 settings = get_settings()
@@ -180,3 +181,4 @@ app.include_router(webhooks.router, prefix="/webhooks", tags=["Webhooks"])
 app.include_router(evaluation.router, prefix="/evaluation", tags=["Evaluation"])
 app.include_router(ledger.router, prefix="/ledger", tags=["Ledger"])
 app.include_router(ingestion.router, prefix="/ingestion", tags=["Ingestion"])
+app.include_router(copilot.router, prefix="/copilot", tags=["Copilot"])

@@ -1,9 +1,9 @@
 """
 ReconIQ Enterprise — Database Models
 """
-from datetime import datetime
+from datetime import datetime, timezone
 from sqlalchemy import (
-    Column, Integer, String, Float, Boolean, DateTime, JSON, ForeignKey, BigInteger, Enum as SQLEnum
+    Column, Integer, String, Float, Boolean, DateTime, JSON, ForeignKey, BigInteger, Enum as SQLEnum, Index
 )
 from sqlalchemy.orm import relationship
 
@@ -15,7 +15,7 @@ class ReconciliationRun(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     run_id = Column(String, unique=True, index=True, nullable=False)
-    started_at = Column(DateTime, default=datetime.utcnow)
+    started_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     completed_at = Column(DateTime, nullable=True)
     threshold = Column(Float, nullable=False)
     records_processed = Column(Integer, default=0)
@@ -26,6 +26,9 @@ class ReconciliationRun(Base):
     reconciled_value_minor = Column(BigInteger, default=0)
     processing_ms = Column(Float, default=0.0)
     status = Column(String, default="RUNNING")
+
+    def __repr__(self):
+        return f"<ReconciliationRun(run_id={self.run_id!r}, status={self.status!r}, match_rate={self.match_rate})>"
 
 
 class Transaction(Base):
@@ -50,8 +53,18 @@ class Transaction(Base):
     fee_minor = Column(BigInteger, default=0)
     tax_minor = Column(BigInteger, default=0)
     adjustment_minor = Column(BigInteger, default=0)
+    virtual_account_id = Column(String, index=True, nullable=True)
+    customer_id = Column(String, nullable=True)
     metadata_ = Column("metadata", JSON, default=dict)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
+
+    __table_args__ = (
+        Index('ix_transactions_source_event_time', 'source', 'event_time'),
+    )
+
+    def __repr__(self):
+        return f"<Transaction(canonical_id={self.canonical_id!r}, source={self.source!r}, amount_minor={self.amount_minor})>"
 
 
 class Settlement(Base):
@@ -69,7 +82,11 @@ class Settlement(Base):
     variance_minor = Column(BigInteger, default=0)
     status = Column(String, default="PENDING")
     utr = Column(String, index=True, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
+
+    def __repr__(self):
+        return f"<Settlement(settlement_id={self.settlement_id!r}, status={self.status!r}, net_minor={self.net_minor})>"
 
 
 class MatchCandidate(Base):
@@ -81,7 +98,7 @@ class MatchCandidate(Base):
     right_transaction_id = Column(String, ForeignKey("transactions.canonical_id"), nullable=False)
     probability = Column(Float, nullable=False)
     features = Column(JSON, default=dict)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 
 class Match(Base):
@@ -94,8 +111,14 @@ class Match(Base):
     probability = Column(Float, nullable=False)
     decision = Column(String, nullable=False)  # AUTO_MATCH, MANUAL_REVIEW
     reason_code = Column(String, nullable=True)
+    review_status = Column(String, default="PENDING")
+    reviewer_id = Column(String, nullable=True)
+    maker_id = Column(String, default="AI")
     evidence = Column(JSON, default=dict)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+    def __repr__(self):
+        return f"<Match(left={self.left_transaction_id!r}, right={self.right_transaction_id!r}, decision={self.decision!r}, probability={self.probability})>"
 
 
 class ExceptionRecord(Base):
@@ -111,8 +134,13 @@ class ExceptionRecord(Base):
     evidence_json = Column(JSON, default=dict)
     ai_explanation = Column(String, nullable=True)
     recommended_action = Column(String, nullable=True)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    deduction_category = Column(String, nullable=True)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
     reviewed_at = Column(DateTime, nullable=True)
+
+    def __repr__(self):
+        return f"<ExceptionRecord(exception_id={self.exception_id!r}, status={self.status!r}, reason_code={self.reason_code!r})>"
 
 
 class AuditEvent(Base):
@@ -132,7 +160,10 @@ class AuditEvent(Base):
     hmac_signature = Column(String, nullable=False)
     nonce = Column(String, nullable=False)
     sequence = Column(Integer, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+    def __repr__(self):
+        return f"<AuditEvent(event_id={self.event_id!r}, action={self.action!r}, record_id={self.record_id!r})>"
 
 
 class WebhookEvent(Base):
@@ -142,7 +173,7 @@ class WebhookEvent(Base):
     event_id = Column(String, unique=True, index=True, nullable=False)
     event_type = Column(String, nullable=False)
     provider = Column(String, nullable=False)
-    received_at = Column(DateTime, default=datetime.utcnow)
+    received_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     payload = Column(JSON, nullable=False)
     processing_status = Column(String, default="PENDING")
 
@@ -155,7 +186,18 @@ class ExplanationRequest(Base):
     prompt = Column(String, nullable=False)
     response = Column(String, nullable=True)
     model = Column(String, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+
+class AgenticCommunication(Base):
+    __tablename__ = "agentic_communications"
+
+    id = Column(Integer, primary_key=True, index=True)
+    exception_id = Column(String, ForeignKey("exceptions.exception_id"), nullable=False)
+    message_content = Column(String, nullable=False)
+    status = Column(String, default="PENDING")
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+    resolved_at = Column(DateTime, nullable=True)
 
 
 class BenchmarkRun(Base):
@@ -169,7 +211,7 @@ class BenchmarkRun(Base):
     recall = Column(Float, nullable=False)
     match_rate = Column(Float, nullable=False)
     processing_seconds = Column(Float, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
 
 class SourceConfig(Base):
@@ -178,7 +220,7 @@ class SourceConfig(Base):
     id = Column(Integer, primary_key=True, index=True)
     source_name = Column(String, unique=True, nullable=False)
     config = Column(JSON, default=dict)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    updated_at = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
 
 
 # ── Django Ledger / Blnk Inspired Double-Entry Tables ─────────────────────────
@@ -190,7 +232,8 @@ class JournalEntryDB(Base):
     entry_id = Column(String, unique=True, index=True, nullable=False)
     description = Column(String, nullable=False)
     reference = Column(String, index=True, nullable=True)
-    posted_at = Column(DateTime, default=datetime.utcnow)
+    status = Column(String, default="POSTED")
+    posted_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     metadata_ = Column("metadata", JSON, default=dict)
 
     lines = relationship("JournalLineDB", back_populates="entry", cascade="all, delete-orphan")
@@ -217,7 +260,7 @@ class Organization(Base):
     id = Column(Integer, primary_key=True, index=True)
     org_id = Column(String, unique=True, index=True, nullable=False)
     name = Column(String, nullable=False)
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
     entities = relationship("Entity", back_populates="organization")
 
@@ -230,7 +273,7 @@ class Entity(Base):
     org_id = Column(String, ForeignKey("organizations.org_id"), nullable=False)
     name = Column(String, nullable=False)
     currency = Column(String, default="INR")
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
 
     organization = relationship("Organization", back_populates="entities")
 
@@ -257,7 +300,23 @@ class PeriodClose(Base):
     open_exceptions = Column(Integer, default=0)
     total_variance_minor = Column(BigInteger, default=0)
     
-    created_at = Column(DateTime, default=datetime.utcnow)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     closed_at = Column(DateTime, nullable=True)
     approved_by = Column(String, nullable=True)
 
+
+class DailyReconciliationSummary(Base):
+    __tablename__ = "daily_reconciliation_summaries"
+
+    id = Column(Integer, primary_key=True, index=True)
+    date = Column(DateTime, nullable=False, unique=True)
+    total_transactions = Column(Integer, default=0)
+    auto_matched = Column(Integer, default=0)
+    manual_review = Column(Integer, default=0)
+    unresolved = Column(Integer, default=0)
+    match_rate = Column(Float, default=0.0)
+    total_value_minor = Column(BigInteger, default=0)
+    reconciled_value_minor = Column(BigInteger, default=0)
+    open_exceptions = Column(Integer, default=0)
+    resolved_exceptions = Column(Integer, default=0)
+    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))

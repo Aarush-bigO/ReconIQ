@@ -22,11 +22,7 @@ from apps.api.services.ledger import process_financial_event_sync
 router = APIRouter()
 
 def _populate_transactions_if_empty(db):
-    import time
-    t0 = time.time()
     first = db.query(Transaction).first()
-    t1 = time.time()
-    print(f"DEBUG_POPULATE: first() took {t1-t0:.4f}s, first={first}")
     if first is not None:
         return
     sources = load_all_sources()
@@ -114,7 +110,8 @@ async def list_transactions(
                 "event_type": r.event_type,
                 "direction": r.direction,
                 "status": r.status,
-                "utr": r.utr
+                "utr": r.utr,
+                "match_status": "UNKNOWN",  # Will be enriched below
             }
             res.append(d)
             
@@ -123,6 +120,29 @@ async def list_transactions(
             "page": page,
             "page_size": page_size,
             "records": res,
+        }
+    finally:
+        db.close()
+
+@router.get("/stats")
+async def transaction_stats():
+    """Transaction volume and status breakdown."""
+    db = SyncSessionLocal()
+    try:
+        from sqlalchemy import func
+        total = db.query(Transaction).count()
+        by_source = db.query(
+            Transaction.source, func.count(Transaction.id)
+        ).group_by(Transaction.source).all()
+        by_status = db.query(
+            Transaction.status, func.count(Transaction.id)
+        ).group_by(Transaction.status).all()
+        total_value = db.query(func.sum(Transaction.amount_minor)).scalar() or 0
+        return {
+            "total_transactions": total,
+            "total_value_minor": total_value,
+            "by_source": {source: count for source, count in by_source},
+            "by_status": {status: count for status, count in by_status},
         }
     finally:
         db.close()

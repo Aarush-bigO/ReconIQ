@@ -9,15 +9,16 @@ from fastapi import APIRouter
 
 from audit.audit_log import get_chain, AuditChain
 from database.session import SyncSessionLocal
+from apps.api.config import get_settings
 
 router = APIRouter()
-
+settings = get_settings()
 
 @router.get("")
 async def get_audit_trail(limit: int = 100):
     """Get recent audit events with chain integrity status."""
     db = SyncSessionLocal()
-    chain = AuditChain(db_session=db)
+    chain = AuditChain(hmac_secret=settings.audit_hmac_secret, db_session=db)
     events = chain.get_events()
     is_valid, broken_at = chain.verify()
     db.close()
@@ -35,7 +36,7 @@ async def get_audit_trail(limit: int = 100):
 async def verify_audit_chain():
     """Verify the complete audit chain integrity (hash chain + HMAC)."""
     db = SyncSessionLocal()
-    chain = AuditChain(db_session=db)
+    chain = AuditChain(hmac_secret=settings.audit_hmac_secret, db_session=db)
     is_valid, broken_at = chain.verify()
     db.close()
     return {
@@ -43,7 +44,7 @@ async def verify_audit_chain():
         "valid": is_valid,
         "event_count": chain.event_count(),
         "broken_at_index": broken_at,
-        "verified_at": datetime.utcnow().isoformat(),
+        "verified_at": datetime.now().isoformat(),
         "message": "Audit chain integrity verified. All hash chains and HMAC signatures valid." if is_valid
                    else f"⚠️ CRITICAL: Chain tampered at event index {broken_at}. Do not treat affected records as trusted.",
     }
@@ -53,7 +54,7 @@ async def verify_audit_chain():
 async def export_audit_chain():
     """Export the entire audit chain as JSON-LD for external verification."""
     db = SyncSessionLocal()
-    chain = AuditChain(db_session=db)
+    chain = AuditChain(hmac_secret=settings.audit_hmac_secret, db_session=db)
     res = chain.export_chain()
     db.close()
     return res
@@ -63,7 +64,7 @@ async def export_audit_chain():
 async def audit_statistics():
     """Get audit chain statistics including action distribution."""
     db = SyncSessionLocal()
-    chain = AuditChain(db_session=db)
+    chain = AuditChain(hmac_secret=settings.audit_hmac_secret, db_session=db)
     res = chain.statistics()
     db.close()
     return res

@@ -62,7 +62,9 @@ def run_reconciliation(req: ReconcileRequest):
     """Run the complete enterprise reconciliation pipeline."""
     run_id = f"recon_{uuid.uuid4().hex[:8]}"
     db = SyncSessionLocal()
-    chain = AuditChain(db_session=db)
+    from apps.api.config import get_settings
+    settings = get_settings()
+    chain = AuditChain(hmac_secret=settings.audit_hmac_secret, db_session=db)
 
     # Record run start
     chain.record(run_id, run_id, AuditAction.RECONCILIATION_STARTED)
@@ -87,9 +89,40 @@ def run_reconciliation(req: ReconcileRequest):
         # Validate Data Quality
         dq_report = validate_all_sources(sources_dict)
 
+        # ── 1.5 Smart Collect Deterministic Matching ──────────────────────────
+        smart_collect_matches = []
+        if "razorpay" in sources_dict and "bank" in sources_dict:
+            matched_rzp = set()
+            matched_bank = set()
+            for rzp in sources_dict["razorpay"]:
+                va_id = rzp.get("virtual_account_id")
+                if va_id and str(va_id).startswith("va_RPZ_"):
+                    for bank in sources_dict["bank"]:
+                        if bank.get("virtual_account_id") == va_id and bank["canonical_id"] not in matched_bank:
+                            from matching.reconcile import MatchResult
+                            smart_collect_matches.append(MatchResult(
+                                left_id=rzp["canonical_id"],
+                                right_id=bank["canonical_id"],
+                                decision="SMART_COLLECT_MATCH",
+                                probability=1.0,
+                                threshold_applied=1.0,
+                                reason_code="VIRTUAL_ACCOUNT",
+                                evidence={"review_status": "APPROVED"}
+                            ))
+                            matched_rzp.add(rzp["canonical_id"])
+                            matched_bank.add(bank["canonical_id"])
+                            break
+            
+            sources_dict["razorpay"] = [r for r in sources_dict["razorpay"] if r["canonical_id"] not in matched_rzp]
+            sources_dict["bank"] = [r for r in sources_dict["bank"] if r["canonical_id"] not in matched_bank]
+
         # ── 2. Splink Linkage & Match Policy ──────────────────────────────────
         predictions = run_multi_source_linkage(sources_dict)
         output = reconcile(sources_dict, predictions, config)
+        
+        # Append Smart Collect matches to the output
+        output.matches.extend(smart_collect_matches)
+
 
         for match in output.matches:
             chain.record(
@@ -298,7 +331,8 @@ def run_reconciliation(req: ReconcileRequest):
                     decision=m.decision,
                     probability=m.probability,
                     reason_code=m.reason_code,
-                    evidence={"splink_score": m.probability}
+                    evidence={"splink_score": m.probability},
+                    review_status=m.evidence.get("review_status", "PENDING")
                 )
             )
             
