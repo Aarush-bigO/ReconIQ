@@ -84,13 +84,13 @@ export default function ExceptionsPage() {
               onClick={() => setSelected(exc)}
               style={{
                 padding: "14px 16px", borderRadius: 12, cursor: "pointer",
-                background: selected?.exception_id === exc.exception_id ? "rgba(45,104,254,0.06)" : "rgba(12,17,30,0.5)",
-                border: selected?.exception_id === exc.exception_id ? "1px solid rgba(45,104,254,0.25)" : "1px solid rgba(255,255,255,0.06)",
-                backdropFilter: "blur(12px)",
+                background: selected?.exception_id === exc.exception_id ? "rgba(45,104,254,0.04)" : "#ffffff",
+                border: selected?.exception_id === exc.exception_id ? "1px solid rgba(45,104,254,0.25)" : "1px solid #E2E8F0",
+                boxShadow: selected?.exception_id === exc.exception_id ? "none" : "0 1px 2px rgba(0,0,0,0.03)",
                 transition: "all 0.15s ease",
               }}
-              onMouseEnter={e => { if (selected?.exception_id !== exc.exception_id) (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.12)"; }}
-              onMouseLeave={e => { if (selected?.exception_id !== exc.exception_id) (e.currentTarget as HTMLElement).style.borderColor = "rgba(255,255,255,0.06)"; }}
+              onMouseEnter={e => { if (selected?.exception_id !== exc.exception_id) (e.currentTarget as HTMLElement).style.borderColor = "#CBD5E1"; }}
+              onMouseLeave={e => { if (selected?.exception_id !== exc.exception_id) (e.currentTarget as HTMLElement).style.borderColor = "#E2E8F0"; }}
             >
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
                 <span style={{ fontSize: 10, fontWeight: 700, color: SEV_COLOR[exc.severity], background: SEV_BG[exc.severity], padding: "2px 8px", borderRadius: 99, border: `1px solid ${SEV_BORDER[exc.severity]}` }}>
