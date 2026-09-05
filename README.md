@@ -91,14 +91,4 @@ The system sweeps matching thresholds from `0.80` to `0.99`. The linkage pipelin
 - **Django Ledger:** [https://github.com/arrobalytics/django-ledger](https://github.com/arrobalytics/django-ledger)
 - **OpenFang:** [https://github.com/RightNow-AI/openfang](https://github.com/RightNow-AI/openfang)
 
-## ⚠️ Limitations & Application-Safe Claims
-**Claims:** AI-assisted deterministic financial computation, probabilistic record linkage, tamper-evident audit trail, synthetic benchmark, test-mode integration, human-review workflow.
 
-**Do NOT claim:** We do *not* claim this system is 100% accurate, fraud-proof, production-ready, or fully autonomous. It does not replace accountants, is not blockchain-secured, and is not an official Razorpay product. 
-
-## ⏱ 5-Minute Demo Instructions
-1. Navigate to the **Evaluation Lab** and click "Run Benchmark" to demonstrate the deterministic linkage engine sweeping thresholds.
-2. Navigate to the **Reconciliation** page to view the resolved transactions. Click `[ Why did this match? ]` to show the deterministic decision trace.
-3. Open the **Exceptions** page to view items that fell below the confidence threshold. Show the AI Safety Boundary and the AI's explanation of the discrepancy.
-4. Open the **Settlements** page to show the timeline mapping Razorpay payouts to bank receipts.
-5. Finish on the **Overview** dashboard, proving a 360-degree, professional command center.
