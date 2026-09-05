@@ -186,6 +186,7 @@ function ProfileDropdown() {
 
 export default function LayoutBody({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const isLanding = pathname === "/" || pathname === "/docs";
 
   // Cmd+K shortcut
@@ -256,10 +257,10 @@ export default function LayoutBody({ children }: { children: React.ReactNode }) 
                  placeholder="Search PAY, UTR..." 
                  onKeyDown={e => {
                    if (e.key === 'Enter' && e.currentTarget.value.trim()) {
-                     window.location.href = `/transactions?search=${encodeURIComponent(e.currentTarget.value.trim())}`;
+                     router.push(`/transactions?search=${encodeURIComponent(e.currentTarget.value.trim())}`);
                    }
                  }}
-                 style={{ border: 'none', background: 'transparent', outline: 'none', width: 140, fontSize: 13, color: '#0F172A' }} 
+                 style={{ border: 'none', background: 'transparent', outline: 'none', width: 200, transition: "width 0.2s", fontSize: 13, color: '#0F172A' }} 
                />
                <span style={{ fontSize: 11, color: '#94A3B8', fontWeight: 600, background: '#fff', padding: '2px 6px', borderRadius: 4, border: '1px solid #E2E8F0' }}>⌘K</span>
             </div>
